@@ -1,13 +1,10 @@
-const withImages = require('next-images')
+const withImages = require('next-images');
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
 module.exports = withImages({
-  esModule: true,
-})
-
-
-module.exports = nextConfig
+    esModule: true,
+    images: {
+        disableStaticImages: true,
+    },
+});

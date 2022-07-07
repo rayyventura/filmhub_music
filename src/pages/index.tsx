@@ -1,20 +1,25 @@
 import React from 'react';
 import Head from 'next/head';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import Header from '../components/Header';
+import MusicContainer from '../components/MusicContainer';
 
 export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Filmhub Music</title>
-        <link rel="shortcut icon" href="/afavicon.png" type="image/x-icon" />
-      </Head>
+    return (
+        <Box
+            w="100%"
+            minH="100vh"
+            bgGradient="linear(to-b, #021133, #7878c0,#021133)"
+        >
+            <Header />
+            <Flex justifyContent="center" alignItems="cenetr">
+                <MusicContainer />
+                <MusicContainer />
+                <MusicContainer />
+                <MusicContainer />
+            </Flex>
 
-      <main>
-        <h1>Ola</h1>
-      </main>
-
-      <footer>Ola</footer>
-
-    </div>
-  );
+            <footer></footer>
+        </Box>
+    );
 }

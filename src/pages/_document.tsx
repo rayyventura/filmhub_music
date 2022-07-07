@@ -1,60 +1,74 @@
-import React from 'react'
+import React from 'react';
 import Document, {
-  DocumentInitialProps,
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+    DocumentInitialProps,
+    DocumentContext,
+    Html,
+    Head,
+    Main,
+    NextScript,
+} from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    static async getInitialProps(
+        ctx: DocumentContext
+    ): Promise<DocumentInitialProps> {
+        const sheet = new ServerStyleSheet();
+        const originalRenderPage = ctx.renderPage;
 
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-        })
+        try {
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: (App) => (props) =>
+                        sheet.collectStyles(<App {...props} />),
+                });
 
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        )
-      }
-    } finally {
-      sheet.seal()
+            const initialProps = await Document.getInitialProps(ctx);
+            return {
+                ...initialProps,
+                styles: (
+                    <>
+                        {initialProps.styles}
+                        {sheet.getStyleElement()}
+                    </>
+                ),
+            };
+        } finally {
+            sheet.seal();
+        }
     }
-  }
 
-  render(): JSX.Element {
-    return (
-      <Html lang="pt">
-        <Head>
-          <meta charSet="utf-8" />
+    render(): JSX.Element {
+        return (
+            <Html lang="pt">
+                <Head>
+                    <meta charSet="utf-8" />
 
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
-            rel="stylesheet"
-          />
+                    <link
+                        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+                        rel="stylesheet"
+                    />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Signika:wght@400;500"
+                        rel="stylesheet"
+                    />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Signika:wght@400;500&display=swap"
+                        rel="stylesheet"
+                    />
 
-          <link rel="shortcut icon" href="../assets/afavicon.png" type="image/x-icon" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+                    <link
+                        rel="shortcut icon"
+                        href="/afavicon.png"
+                        type="image/x-icon"
+                    />
+                </Head>
+
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
+    }
 }

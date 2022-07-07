@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/react": "^2.2.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@types/styled-components": "^5.1.25",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "framer-motion": "^6",
     "next": "12.2.0",
     "next-images": "^1.8.4",
     "prettier": "^2.7.1",

@@ -1,7 +1,7 @@
 module.exports = {
-semi:true,
-singleQuote:true,
-arrowParens:true,
-trailingComma:true,
-endOfLine:"auto"
-}
+  semi: true,
+  singleQuote: true,
+  arrowParens: 'always',
+  endOfLine: 'auto',
+  useTabs: false,
+};
