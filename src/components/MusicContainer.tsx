@@ -12,10 +12,10 @@ export default function MusicContainer({ albumName, artistName, url, image }) {
                 alignItems="flex-start"
                 justifyContent="flex-start"
                 as="section"
-                width="200px"
                 cursor="pointer"
                 _hover={{ opacity: 0.8 }}
                 color="#cacaca"
+                padding="3px"
             >
                 <Image src={`${image}`} className="img"></Image>
                 <Text fontWeight="bold">{albumName}</Text>

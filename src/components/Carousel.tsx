@@ -16,28 +16,34 @@ export default function Carousel({ songs, genre }) {
         infinite: true,
         speed: 500,
         slidesToShow: distplayAlbuns,
-        slidesToScroll: distplayAlbuns,
+        slidesToScroll: 3,
         initialSlide: 0,
-
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow:
-                        distplayAlbuns !== 1
-                            ? distplayAlbuns - 2
-                            : distplayAlbuns,
-                    slidesToScroll: 1,
-                    infinite: false,
+                    slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
+                    infinite: true,
                     dots: true,
                 },
             },
+
             {
-                breakpoint: 600,
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
+                    infinite: true,
+                    dots: true,
+                    slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 560,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 0,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
                 },
             },
         ],

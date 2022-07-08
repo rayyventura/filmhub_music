@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
-import { Box, Flex, Heading, Slide } from '@chakra-ui/react';
+import {
+    Box,
+    color,
+    Divider,
+    Flex,
+    Heading,
+    Link,
+    Slide,
+    Text,
+} from '@chakra-ui/react';
 import Header from '../components/Header';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Carousel from '../components/Carousel';
+import styled from 'styled-components';
+import Footer from '../components/Footer';
 
 export default function Home({ songs }) {
     const keys = Object.keys(songs);
@@ -20,38 +31,42 @@ export default function Home({ songs }) {
     return (
         <Box
             width="100%"
-            minH="100vh"
+            minH="100vw"
             bgGradient="linear(to-r,#030a16d1 , #0b6364 50%,#003031e4 100%)"
         >
             <Header setSearchData={setSearchData} />
-            <Flex
-                justifyContent="center"
-                alignItems="space-evenly"
-                flexDirection="column-reverse"
-                padding=" 0 10%"
-                gap="12px"
-            >
-                {keys.map((key) => {
-                    const filteredSongs = searchData && filterSongs(songs[key]);
-                    return (
-                        <Box width="100%">
-                            {searchData ? (
-                                <Carousel
-                                    songs={filteredSongs}
-                                    key={songs[key].id}
-                                    genre={key}
-                                />
-                            ) : (
-                                <Carousel
-                                    songs={songs[key]}
-                                    key={songs[key].id}
-                                    genre={key}
-                                />
-                            )}
-                        </Box>
-                    );
-                })}
-            </Flex>
+            <Container>
+                <Flex
+                    justifyContent="center"
+                    alignItems="space-evenly"
+                    flexDirection="column-reverse"
+                    padding=" 0 10%"
+                    gap="30px"
+                >
+                    {keys.map((key) => {
+                        const filteredSongs =
+                            searchData && filterSongs(songs[key]);
+                        return (
+                            <Box width="100%">
+                                {searchData ? (
+                                    <Carousel
+                                        songs={filteredSongs}
+                                        key={songs[key].id}
+                                        genre={key}
+                                    />
+                                ) : (
+                                    <Carousel
+                                        songs={songs[key]}
+                                        key={songs[key].id}
+                                        genre={key}
+                                    />
+                                )}
+                            </Box>
+                        );
+                    })}
+                </Flex>
+                <Footer />
+            </Container>
         </Box>
     );
 }
@@ -84,6 +99,13 @@ export async function getStaticProps() {
         props: {
             songs: hashSongs,
         },
-        revalidate: 86000,
     };
 }
+
+const Container = styled.article`
+    margin-top: 100px;
+
+    @media (max-width: 700px) {
+        margin-top: 40px;
+    }
+`;

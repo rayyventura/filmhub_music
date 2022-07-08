@@ -18,7 +18,6 @@ export default function Header({ setSearchData }) {
             alignItems="center"
             flexDirection="column"
             as="header"
-            mb="100px"
             pt="40px"
         >
             <Flex alignItems="center">
