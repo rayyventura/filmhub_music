@@ -7,8 +7,5 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  .img{
-    border-radius: 10px;
-  }
 
   `;
