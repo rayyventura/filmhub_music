@@ -25,7 +25,7 @@ export default function Header({ setSearchData, filterAlbums }) {
                     <Image src="/logo.png" alt="logo" />
                     <Heading
                         as="h1"
-                        fontSize="36px"
+                        fontSize="2rem"
                         noOfLines={1}
                         padding="20px"
                         fontFamily="Plus Jakarta Sans"

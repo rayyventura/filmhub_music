@@ -82,7 +82,6 @@ export default function Home({ albums }) {
                                             genre={key}
                                             key={i}
                                         />
-                                        )
                                     </Box>
                                 );
                             })}

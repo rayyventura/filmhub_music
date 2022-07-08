@@ -10,30 +10,30 @@ export default function Carousel({ songs, genre }) {
     const distplayAlbuns = songs.length <= 5 ? songs.length : 5;
     const ref = useRef(null);
     const { enterCount } = useInViewport(ref);
+
     const carouselSettings = {
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: distplayAlbuns,
         slidesToScroll: 3,
         initialSlide: 0,
+        dots: true,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
                     infinite: true,
-                    dots: true,
                 },
                 initialSlide: 0,
             },
 
             {
-                breakpoint: 700,
+                breakpoint: 900,
                 settings: {
                     slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
                     infinite: true,
-                    dots: true,
+                    dots: false,
                     slidesToScroll: 2,
                     initialSlide: 0,
                 },
@@ -44,8 +44,8 @@ export default function Carousel({ songs, genre }) {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true,
                     initialSlide: 0,
+                    dots: false,
                 },
             },
         ],
@@ -63,7 +63,7 @@ export default function Carousel({ songs, genre }) {
                     <Container ref={ref}>
                         <Heading
                             as="h1"
-                            fontSize="30px"
+                            fontSize="2rem"
                             fontFamily="Plus Jakarta Sans"
                             color="white"
                             textShadow="1px 1px 3px black"
