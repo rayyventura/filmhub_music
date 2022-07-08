@@ -1,9 +1,9 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Heading } from '@chakra-ui/react';
 import Slider from 'react-slick';
 
 import MusicContainer from './MusicContainer';
 
-export default function Carousel({ songs }) {
+export default function Carousel({ songs, genre }) {
     const distplayAlbuns = songs.length <= 5 ? songs.length : 5;
 
     const settings = {
@@ -39,18 +39,36 @@ export default function Carousel({ songs }) {
     };
 
     return (
-        <Slider {...settings}>
-            {songs.map((song) => {
-                return (
-                    <MusicContainer
-                        key={song.id}
-                        albumName={song.name}
-                        artistName={song.artistName}
-                        url={song.url}
-                        image={song.artworkUrl100}
-                    />
-                );
-            })}
-        </Slider>
+        <>
+            {distplayAlbuns !== 0 && (
+                <>
+                    <Heading
+                        as="h1"
+                        fontSize="30px"
+                        fontFamily="Plus Jakarta Sans"
+                        color="white"
+                        textShadow="1px 1px 3px black"
+                        letterSpacing="tighter"
+                        alignSelf="flex-start"
+                        mb="12px"
+                    >
+                        {genre}
+                    </Heading>
+                    <Slider {...settings}>
+                        {songs.map((song) => {
+                            return (
+                                <MusicContainer
+                                    key={song.id}
+                                    albumName={song.name}
+                                    artistName={song.artistName}
+                                    url={song.url}
+                                    image={song.artworkUrl100}
+                                />
+                            );
+                        })}
+                    </Slider>
+                </>
+            )}
+        </>
     );
 }

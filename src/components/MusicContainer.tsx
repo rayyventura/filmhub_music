@@ -5,7 +5,6 @@ import { Link } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 export default function MusicContainer({ albumName, artistName, url, image }) {
-    console.log(artistName);
     return (
         <Link href={url} isExternal>
             <Flex

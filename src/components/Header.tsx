@@ -8,7 +8,7 @@ import {
 import React, { useState } from 'react';
 import { Search2Icon } from '@chakra-ui/icons';
 
-export default function Header() {
+export default function Header({ setSearchData }) {
     const [inputColor, setInputcolor] = useState<string>('white');
 
     return (
@@ -47,6 +47,7 @@ export default function Header() {
                         onBlur={() => setInputcolor('black')}
                         onFocus={() => setInputcolor('white')}
                         placeholder="Search"
+                        onChange={(e) => setSearchData(e.target.value)}
                     ></Input>
                 </InputGroup>
             </Flex>
