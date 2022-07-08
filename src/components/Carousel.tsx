@@ -1,4 +1,4 @@
-import { Heading, ScaleFade } from '@chakra-ui/react';
+import { Heading, ScaleFade, Text } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -11,7 +11,7 @@ export default function Carousel({ songs, genre }) {
     const ref = useRef(null);
     const { enterCount } = useInViewport(ref);
 
-    const settings = {
+    const carouselSettings = {
         dots: true,
         infinite: true,
         speed: 500,
@@ -26,6 +26,7 @@ export default function Carousel({ songs, genre }) {
                     infinite: true,
                     dots: true,
                 },
+                initialSlide: 0,
             },
 
             {
@@ -34,7 +35,8 @@ export default function Carousel({ songs, genre }) {
                     slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
                     infinite: true,
                     dots: true,
-                    slidesToScroll: 3,
+                    slidesToScroll: 2,
+                    initialSlide: 0,
                 },
             },
             {
@@ -44,6 +46,7 @@ export default function Carousel({ songs, genre }) {
                     slidesToScroll: 2,
                     infinite: true,
                     dots: true,
+                    initialSlide: 0,
                 },
             },
         ],
@@ -51,7 +54,7 @@ export default function Carousel({ songs, genre }) {
 
     return (
         <>
-            {distplayAlbuns !== 0 && (
+            {distplayAlbuns ? (
                 <ScaleFade
                     in={enterCount > 0}
                     whileHover={{ scale: 1.005 }}
@@ -71,7 +74,7 @@ export default function Carousel({ songs, genre }) {
                         >
                             {genre}
                         </Heading>
-                        <Slider {...settings}>
+                        <Slider {...carouselSettings}>
                             {songs.map((song) => {
                                 return (
                                     <MusicContainer
@@ -86,6 +89,8 @@ export default function Carousel({ songs, genre }) {
                         </Slider>
                     </Container>
                 </ScaleFade>
+            ) : (
+                <Text>Nothing was found</Text>
             )}
         </>
     );
