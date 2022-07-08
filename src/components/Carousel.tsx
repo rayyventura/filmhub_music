@@ -1,5 +1,6 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import Slider from 'react-slick';
+import styled from 'styled-components';
 
 import MusicContainer from './MusicContainer';
 
@@ -41,7 +42,7 @@ export default function Carousel({ songs, genre }) {
     return (
         <>
             {distplayAlbuns !== 0 && (
-                <>
+                <Container>
                     <Heading
                         as="h1"
                         fontSize="30px"
@@ -67,8 +68,15 @@ export default function Carousel({ songs, genre }) {
                             );
                         })}
                     </Slider>
-                </>
+                </Container>
             )}
         </>
     );
 }
+
+const Container = styled.section`
+    div.slick-slide {
+        width: 200px !important;
+        margin: 9px;
+    }
+`;

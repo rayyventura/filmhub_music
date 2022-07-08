@@ -21,8 +21,7 @@ export default function Home({ songs }) {
         <Box
             width="100%"
             minH="100vh"
-            bgGradient="linear(to-r,#030a16da , #018e91 50%,#003031 100%)"
-            overflow="scroll"
+            bgGradient="linear(to-r,#030a16d1 , #0b6364 50%,#003031e4 100%)"
         >
             <Header setSearchData={setSearchData} />
             <Flex
@@ -30,7 +29,7 @@ export default function Home({ songs }) {
                 alignItems="space-evenly"
                 flexDirection="column-reverse"
                 padding=" 0 10%"
-                gap="20px"
+                gap="12px"
             >
                 {keys.map((key) => {
                     const filteredSongs = searchData && filterSongs(songs[key]);
@@ -85,5 +84,6 @@ export async function getStaticProps() {
         props: {
             songs: hashSongs,
         },
+        revalidate: 86000,
     };
 }
