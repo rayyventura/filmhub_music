@@ -53,6 +53,7 @@ export default function Footer() {
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
                                 size="xs"
+                                className="avatar"
                             />
                         </WrapItem>
                     </Link>
@@ -68,6 +69,7 @@ export default function Footer() {
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
                                 size="xs"
+                                className="avatar"
                             />
                         </WrapItem>
                     </Link>
@@ -83,6 +85,7 @@ export default function Footer() {
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
                                 size="xs"
+                                className="avatar"
                             />
                         </WrapItem>
                     </Link>
@@ -96,6 +99,7 @@ export default function Footer() {
                                 opacity="0.6"
                                 bgColor="white"
                                 size="xs"
+                                className="avatar"
                             />
                         </WrapItem>
                     </Link>
@@ -108,5 +112,8 @@ export default function Footer() {
 const Container = styled(Flex)`
     @media (max-width: 800px) {
         flex-direction: column;
+        .avatar {
+            opacity: 1;
+        }
     }
 `;
