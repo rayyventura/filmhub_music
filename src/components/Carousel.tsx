@@ -10,7 +10,6 @@ export default function Carousel({ songs, genre }) {
     const distplayAlbuns = songs.length <= 5 ? songs.length : 5;
     const ref = useRef(null);
     const { enterCount } = useInViewport(ref);
-
     const carouselSettings = {
         dots: true,
         infinite: true,
@@ -54,7 +53,7 @@ export default function Carousel({ songs, genre }) {
 
     return (
         <>
-            {distplayAlbuns ? (
+            {distplayAlbuns && (
                 <ScaleFade
                     in={enterCount > 0}
                     whileHover={{ scale: 1.005 }}
@@ -89,8 +88,6 @@ export default function Carousel({ songs, genre }) {
                         </Slider>
                     </Container>
                 </ScaleFade>
-            ) : (
-                <Text>Nothing was found</Text>
             )}
         </>
     );

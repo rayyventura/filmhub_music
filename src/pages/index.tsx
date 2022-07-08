@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import Header from '../components/Header';
 import 'slick-carousel/slick/slick.css';
@@ -8,9 +8,10 @@ import styled from 'styled-components';
 import Footer from '../components/Footer';
 
 export default function Home({ albums }) {
-    const keys = Object.keys(albums);
+    const albumsKeys = Object.keys(albums);
     const [searchData, setSearchData] = useState<string>('');
     const [filteredAlbums, setFilteredAlbums] = useState([]);
+
     function filter(albums) {
         const filteredData = albums.filter(
             (album) =>
@@ -22,7 +23,7 @@ export default function Home({ albums }) {
         return filteredData;
     }
     function filterAlbums() {
-        let filtered = keys.map((key) => {
+        let filtered = albumsKeys.map((key) => {
             return searchData && filter(albums[key]);
         });
 
@@ -51,30 +52,40 @@ export default function Home({ albums }) {
                         flexDirection="column"
                         className="album-grid"
                     >
-                        {filteredAlbums.length || searchData.length
-                            ? filteredAlbums.map((album, i) => {
-                                  return (
-                                      <Box width="100%">
-                                          <Carousel
-                                              songs={album}
-                                              key={album}
-                                              genre={album[i]?.genres[0].name}
-                                          />
-                                      </Box>
-                                  );
-                              })
-                            : keys.map((key) => {
-                                  return (
-                                      <Box width="100%">
-                                          <Carousel
-                                              songs={albums[key]}
-                                              key={albums[key].id}
-                                              genre={key}
-                                          />
-                                          )
-                                      </Box>
-                                  );
-                              })}
+                        {searchData.length !== 0 &&
+                            filteredAlbums.map((album, i) => {
+                                console.log(album);
+                                return (
+                                    <Box width="100%">
+                                        <Carousel
+                                            songs={album}
+                                            key={album}
+                                            genre={album[i]?.genres[0].name}
+                                        />
+                                    </Box>
+                                );
+                            })}
+                    </Flex>
+                    <Flex
+                        justifyContent="flex-start"
+                        alignItems="flex-start"
+                        padding=" 0 10%"
+                        flexDirection="column"
+                        className="album-grid"
+                    >
+                        {searchData.length === 0 &&
+                            albumsKeys?.map((key, i) => {
+                                return (
+                                    <Box width="100%">
+                                        <Carousel
+                                            songs={albums[key]}
+                                            genre={key}
+                                            key={i}
+                                        />
+                                        )
+                                    </Box>
+                                );
+                            })}
                     </Flex>
                 </Container>
             </Flex>
@@ -85,7 +96,7 @@ export default function Home({ albums }) {
 
 export async function getStaticProps() {
     const res = await fetch(
-        'https://rss.applemarketingtools.com/api/v2/us/music/most-played/50/albums.json'
+        'https://rss.applemarketingtools.com/api/v2/us/music/most-played/100/albums.json'
     );
     const data = await res.json();
     const songs = data.feed.results;
