@@ -8,6 +8,7 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import React from 'react';
+import styled from 'styled-components';
 
 export default function Footer() {
     return (
@@ -19,7 +20,7 @@ export default function Footer() {
             flexDirection="column"
         >
             <Divider />
-            <Flex
+            <Container
                 justifyContent="space-between"
                 alignItems="center"
                 fontSize="12px"
@@ -99,7 +100,13 @@ export default function Footer() {
                         </WrapItem>
                     </Link>
                 </Wrap>
-            </Flex>
+            </Container>
         </Flex>
     );
 }
+
+const Container = styled(Flex)`
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+`;
