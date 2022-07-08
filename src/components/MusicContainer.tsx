@@ -16,8 +16,9 @@ export default function MusicContainer({ albumName, artistName, url, image }) {
                 _hover={{ opacity: 0.8 }}
                 color="#cacaca"
                 padding="3px"
+                width="200px"
             >
-                <Image src={`${image}`} className="img"></Image>
+                <Image src={`${image}`}></Image>
                 <Text fontWeight="bold">{albumName}</Text>
                 <Text fontSize="12px" color="#82c2e7">
                     {artistName}{' '}

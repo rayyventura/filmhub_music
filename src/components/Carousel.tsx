@@ -25,7 +25,6 @@ export default function Carousel({ songs, genre }) {
                     slidesToShow: distplayAlbuns !== 1 ? 2 : distplayAlbuns,
                     infinite: true,
                 },
-                initialSlide: 0,
             },
 
             {
@@ -35,7 +34,6 @@ export default function Carousel({ songs, genre }) {
                     infinite: true,
                     dots: false,
                     slidesToScroll: 2,
-                    initialSlide: 0,
                 },
             },
             {
@@ -44,7 +42,7 @@ export default function Carousel({ songs, genre }) {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    initialSlide: 0,
+
                     dots: false,
                 },
             },
