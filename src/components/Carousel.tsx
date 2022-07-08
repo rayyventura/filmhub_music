@@ -43,7 +43,7 @@ export default function Carousel({ songs, genre }) {
                 breakpoint: 560,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true,
                     initialSlide: 0,

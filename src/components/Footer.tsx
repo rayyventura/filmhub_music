@@ -19,7 +19,11 @@ export default function Footer() {
             flexDirection="column"
         >
             <Divider />
-            <Flex justifyContent="space-between" alignItems="center">
+            <Flex
+                justifyContent="space-between"
+                alignItems="center"
+                fontSize="12px"
+            >
                 <Flex gap="9px" ml="20px">
                     <Text>© 2021 Filmhub, Inc.</Text>
                     <Link
@@ -47,7 +51,7 @@ export default function Footer() {
                                 cursor="pointer"
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
-                                size="sm"
+                                size="xs"
                             />
                         </WrapItem>
                     </Link>
@@ -62,7 +66,7 @@ export default function Footer() {
                                 cursor="pointer"
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
-                                size="sm"
+                                size="xs"
                             />
                         </WrapItem>
                     </Link>
@@ -77,7 +81,7 @@ export default function Footer() {
                                 cursor="pointer"
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
-                                size="sm"
+                                size="xs"
                             />
                         </WrapItem>
                     </Link>
@@ -90,7 +94,7 @@ export default function Footer() {
                                 _hover={{ opacity: 1 }}
                                 opacity="0.6"
                                 bgColor="white"
-                                size="sm"
+                                size="xs"
                             />
                         </WrapItem>
                     </Link>
