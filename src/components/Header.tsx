@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Search2Icon } from '@chakra-ui/icons';
+import styled from 'styled-components';
 
 export default function Header({ setSearchData }) {
     const [inputColor, setInputcolor] = useState<string>('white');
@@ -20,18 +21,21 @@ export default function Header({ setSearchData }) {
             mb="100px"
             pt="40px"
         >
-            <Heading
-                as="h1"
-                fontSize="36px"
-                noOfLines={1}
-                padding="20px"
-                fontFamily="Plus Jakarta Sans"
-                color="white"
-                textShadow="1px 1px 12px black"
-                letterSpacing="tighter"
-            >
-                Filmhub Music
-            </Heading>
+            <Flex alignItems="center">
+                <Image src="/logo.png" alt="logo" />
+                <Heading
+                    as="h1"
+                    fontSize="36px"
+                    noOfLines={1}
+                    padding="20px"
+                    fontFamily="Plus Jakarta Sans"
+                    color="white"
+                    textShadow="1px 1px 12px black"
+                    letterSpacing="tighter"
+                >
+                    Filmhub Music
+                </Heading>
+            </Flex>
 
             <Flex alignItems="center" width="50%" justifyContent="center">
                 <InputGroup>
@@ -54,3 +58,9 @@ export default function Header({ setSearchData }) {
         </Flex>
     );
 }
+
+const Image = styled.img`
+    height: 30px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+`;

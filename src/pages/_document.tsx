@@ -59,7 +59,7 @@ export default class MyDocument extends Document {
 
                     <link
                         rel="shortcut icon"
-                        href="/afavicon.png"
+                        href="/logo.png"
                         type="image/x-icon"
                     />
                     <link

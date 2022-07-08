@@ -1,11 +1,15 @@
-import { Heading } from '@chakra-ui/react';
+import { Heading, ScaleFade } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import MusicContainer from './MusicContainer';
+import { useInViewport } from 'react-in-viewport';
+import { useRef } from 'react';
 
 export default function Carousel({ songs, genre }) {
     const distplayAlbuns = songs.length <= 5 ? songs.length : 5;
+    const ref = useRef(null);
+    const { enterCount } = useInViewport(ref);
 
     const settings = {
         dots: true,
@@ -42,33 +46,40 @@ export default function Carousel({ songs, genre }) {
     return (
         <>
             {distplayAlbuns !== 0 && (
-                <Container>
-                    <Heading
-                        as="h1"
-                        fontSize="30px"
-                        fontFamily="Plus Jakarta Sans"
-                        color="white"
-                        textShadow="1px 1px 3px black"
-                        letterSpacing="tighter"
-                        alignSelf="flex-start"
-                        mb="12px"
-                    >
-                        {genre}
-                    </Heading>
-                    <Slider {...settings}>
-                        {songs.map((song) => {
-                            return (
-                                <MusicContainer
-                                    key={song.id}
-                                    albumName={song.name}
-                                    artistName={song.artistName}
-                                    url={song.url}
-                                    image={song.artworkUrl100}
-                                />
-                            );
-                        })}
-                    </Slider>
-                </Container>
+                <ScaleFade
+                    in={enterCount > 0}
+                    whileHover={{ scale: 1.005 }}
+                    reverse={true}
+                    style={{ transitionDuration: '300ms' }}
+                >
+                    <Container ref={ref}>
+                        <Heading
+                            as="h1"
+                            fontSize="30px"
+                            fontFamily="Plus Jakarta Sans"
+                            color="white"
+                            textShadow="1px 1px 3px black"
+                            letterSpacing="tighter"
+                            alignSelf="flex-start"
+                            mb="12px"
+                        >
+                            {genre}
+                        </Heading>
+                        <Slider {...settings}>
+                            {songs.map((song) => {
+                                return (
+                                    <MusicContainer
+                                        key={song.id}
+                                        albumName={song.name}
+                                        artistName={song.artistName}
+                                        url={song.url}
+                                        image={song.artworkUrl100}
+                                    />
+                                );
+                            })}
+                        </Slider>
+                    </Container>
+                </ScaleFade>
             )}
         </>
     );
