@@ -19,9 +19,16 @@ export default function MusicContainer({ albumName, artistName, url, image }) {
                 width="200px"
             >
                 <Image src={`${image}`}></Image>
-                <Text fontWeight="bold">{albumName}</Text>
-                <Text fontSize="12px" color="#82c2e7">
-                    {artistName}{' '}
+                <Text fontWeight="bold" as="p" data-cy="album-name">
+                    {albumName}
+                </Text>
+                <Text
+                    fontSize="12px"
+                    as="p"
+                    color="#82c2e7"
+                    data-cy="artist-name"
+                >
+                    {artistName}
                 </Text>
             </Flex>
         </Link>

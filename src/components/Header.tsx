@@ -49,6 +49,7 @@ export default function Header({ setSearchData, filterAlbums }) {
                             children={<Search2Icon color="gray.300" />}
                         />
                         <Input
+                            data-cy="search-input"
                             size="lg"
                             variant="filled"
                             color={inputColor}

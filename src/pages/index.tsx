@@ -54,7 +54,6 @@ export default function Home({ albums }) {
                     >
                         {searchData.length !== 0 &&
                             filteredAlbums.map((album, i) => {
-                                console.log(album);
                                 return (
                                     <Box width="100%">
                                         <Carousel
