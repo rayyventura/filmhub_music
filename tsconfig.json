@@ -20,7 +20,8 @@
         "**/*.ts",
         "**/*.tsx",
         "cypress/e2e/home.cy.js",
-        "cypress/support/commands.js"
+        "cypress/support/commands.js",
+        "cypress/support/e2e.js"
     ],
     "exclude": ["node_modules"]
 }
