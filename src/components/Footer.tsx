@@ -20,7 +20,7 @@ export default function Footer() {
         fontSize="12px"
       >
         <Flex gap="9px" ml="20px">
-          <Text>© 2021 Filmhub, Inc.</Text>
+          <Text>© 2022 Filmhub, Inc.</Text>
           <Link
             _hover={{ color: '#8b8b8b' }}
             href="https://filmhub.com/terms"

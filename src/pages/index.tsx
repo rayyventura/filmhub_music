@@ -110,6 +110,7 @@ export async function getStaticProps() {
   return {
     props: {
       albums: hashSongs,
+      revalidate: 86000,
     },
   };
 }

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 export default function MusicContainer({ albumName, artistName, url, image }) {
   return (
-    <Link href={url} isExternal>
+    <Link href={url} data-cy="album-url">
       <Flex
         flexDirection="column"
         alignItems="flex-start"
