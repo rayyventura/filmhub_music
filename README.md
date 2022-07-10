@@ -1,5 +1,4 @@
 # Filmhub Music
-A music album dashboard 
 
 ### :computer: Tech used
 
