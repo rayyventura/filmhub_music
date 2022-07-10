@@ -48,3 +48,12 @@ npm start
 ```
 The app will run locally on http://localhost:3000
 
+
+## Test
+```bash
+#you can run the test with
+npm run cypress:open
+#Select the option E2E Testing and pick Chrome as Browser.
+
+```
+
