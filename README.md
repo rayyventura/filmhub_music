@@ -46,5 +46,5 @@ npm run dev
 npm run build
 npm start
 ```
-The app will run locally on localhost:3000
+The app will run locally on http://localhost:3000
 
