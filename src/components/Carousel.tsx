@@ -18,6 +18,7 @@ export default function Carousel({ songs, genre }) {
     slidesToScroll: 3,
     initialSlide: 0,
     dots: true,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -44,7 +45,7 @@ export default function Carousel({ songs, genre }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          initialSlide: 0,
+
           dots: false,
         },
       },
@@ -95,7 +96,7 @@ export default function Carousel({ songs, genre }) {
 
 const Container = styled.section`
   div.slick-slide {
-    width: 200px !important;
+    width: 200px;
     margin: 9px;
   }
 `;
