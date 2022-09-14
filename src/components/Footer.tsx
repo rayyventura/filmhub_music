@@ -23,22 +23,18 @@ export default function Footer() {
           <Text>© 2022 Filmhub, Inc.</Text>
           <Link
             _hover={{ color: '#8b8b8b' }}
-            href="https://filmhub.com/terms"
+            href="#"
             isExternal
             cursor="pointer"
           >
             Terms
           </Link>
-          <Link
-            _hover={{ color: '#8b8b8b' }}
-            href="https://filmhub.com/privacy"
-            isExternal
-          >
+          <Link _hover={{ color: '#8b8b8b' }} href="#" isExternal>
             Privacy
           </Link>
         </Flex>
         <Wrap pb="12px" mr="20px">
-          <Link href="https://www.facebook.com/filmhubhq" isExternal>
+          <Link href="#" isExternal>
             <WrapItem>
               <Avatar
                 name="Dan Abrahmov"
@@ -51,7 +47,7 @@ export default function Footer() {
               />
             </WrapItem>
           </Link>
-          <Link href="https://www.instagram.com/filmhubhq/" isExternal>
+          <Link href="#" isExternal>
             <WrapItem>
               <Avatar
                 name="Kent Dodds"
@@ -64,7 +60,7 @@ export default function Footer() {
               />
             </WrapItem>
           </Link>
-          <Link href="https://www.linkedin.com/company/filmhub/" isExternal>
+          <Link href="#" isExternal>
             <WrapItem>
               <Avatar
                 name="Kent Dodds"
@@ -77,7 +73,7 @@ export default function Footer() {
               />
             </WrapItem>
           </Link>
-          <Link href="https://twitter.com/filmhubhq" isExternal>
+          <Link href="#" isExternal>
             <WrapItem>
               <Avatar
                 name="facebook"
