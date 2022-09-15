@@ -13,7 +13,7 @@
 
 ## Features
 
-`Search for songs by album name or singer`
+`Search for albums by album name or singer`
 
 ## Installation 🛠️
 ### Make sure you have the following tools installed before you begin:
